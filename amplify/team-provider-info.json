@@ -10,6 +10,11 @@
       "StackName": "amplify-simplecalc-dev-fb8ed",
       "StackId": "arn:aws:cloudformation:us-east-1:339713072820:stack/amplify-simplecalc-dev-fb8ed/b1d0b2c0-4605-11ef-b883-0e6561a10657",
       "AmplifyAppId": "d3shx0yn0bb9om"
+    },
+    "categories": {
+      "auth": {
+        "simplecalcac54747b": {}
+      }
     }
   }
 }
