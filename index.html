@@ -10,10 +10,14 @@
         body {
             background-color: #222629;
             color: #86C232;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
         }
         .container {
             max-width: 400px;
-            margin-top: 50px;
         }
         .form-control {
             background-color: #86C232;
@@ -93,7 +97,9 @@
                         operation = 'power';
                         break;
                 }
-                callAPI(operation, num1, num2);
+                if (symbol !== '=') {
+                    callAPI(operation, num1, num2);
+                }
             } else {
                 alert("Please enter valid numbers.");
             }
