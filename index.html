@@ -60,7 +60,7 @@
                 redirect: 'follow'
             };
 
-            fetch("YOUR API GATEWAY ENDPOINT", requestOptions)
+            fetch("https://8gvkcdog1j.execute-api.us-east-1.amazonaws.com/dev", requestOptions)
             .then(response => response.text())
             .then(result => {
                 document.getElementById('result').value = JSON.parse(result).body;
