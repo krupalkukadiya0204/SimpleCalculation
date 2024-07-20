@@ -50,60 +50,60 @@
             margin-bottom: 20px;
         }
     </style>
-<script>
-    var callAPI = (operation, num1, num2) => {
-        var myHeaders = new Headers();
-        myHeaders.append("Content-Type", "application/json");
+    <script>
+        // callAPI function to interact with the backend
+        var callAPI = (operation, num1, num2) => {
+            var myHeaders = new Headers();
+            myHeaders.append("Content-Type", "application/json");
 
-        var raw = JSON.stringify({"operation": operation, "num1": num1, "num2": num2});
+            var raw = JSON.stringify({"operation": operation, "num1": num1, "num2": num2});
 
-        var requestOptions = {
-            method: 'POST',
-            headers: myHeaders,
-            body: raw,
-            redirect: 'follow'
-        };
+            var requestOptions = {
+                method: 'POST',
+                headers: myHeaders,
+                body: raw,
+                redirect: 'follow'
+            };
 
-        fetch("https://bxeexfqc1k.execute-api.us-east-1.amazonaws.com/dev", requestOptions)
-        .then(response => response.json())  // Ensure the response is parsed as JSON
-        .then(result => {
-            document.getElementById('result').value = result.body;
-        })
-        .catch(error => console.log('error', error));
-    }
-
-    function performOperation(symbol) {
-        const num1 = parseFloat(document.getElementById('num1').value);
-        const num2 = parseFloat(document.getElementById('num2').value);
-        if (!isNaN(num1) && !isNaN(num2)) {
-            let operation;
-            switch (symbol) {
-                case '+':
-                    operation = 'add';
-                    break;
-                case '-':
-                    operation = 'subtract';
-                    break;
-                case '*':
-                    operation = 'multiply';
-                    break;
-                case '/':
-                    operation = 'divide';
-                    break;
-                case '%':
-                    operation = 'modulo';
-                    break;
-                case '^':
-                    operation = 'power';
-                    break;
-            }
-            callAPI(operation, num1, num2);
-        } else {
-            alert("Please enter valid numbers.");
+            fetch("https://bxeexfqc1k.execute-api.us-east-1.amazonaws.com/dev", requestOptions)
+            .then(response => response.json())
+            .then(result => {
+                document.getElementById('result').value = result.body;
+            })
+            .catch(error => console.log('error', error));
         }
-    }
-</script>
 
+        function performOperation(symbol) {
+            const num1 = parseFloat(document.getElementById('num1').value);
+            const num2 = parseFloat(document.getElementById('num2').value);
+            if (!isNaN(num1) && !isNaN(num2)) {
+                let operation;
+                switch (symbol) {
+                    case '+':
+                        operation = 'add';
+                        break;
+                    case '-':
+                        operation = 'subtract';
+                        break;
+                    case '*':
+                        operation = 'multiply';
+                        break;
+                    case '/':
+                        operation = 'divide';
+                        break;
+                    case '%':
+                        operation = 'modulo';
+                        break;
+                    case '^':
+                        operation = 'power';
+                        break;
+                }
+                callAPI(operation, num1, num2);
+            } else {
+                alert("Please enter valid numbers.");
+            }
+        }
+    </script>
 </head>
 <body>
     <div class="container">
